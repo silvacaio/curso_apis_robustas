@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1834D88-2D5E-4A7B-ABBC-B80971745CEA}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1C31BB50-970A-4205-B8D7-EA4E117EEBDB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XGame.Domain</RootNamespace>
-    <AssemblyName>XGame.Domain</AssemblyName>
+    <RootNamespace>XGame.AppConsole</RootNamespace>
+    <AssemblyName>XGame.AppConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,31 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arguments\Jogador\AdicionarJogadorResponse.cs" />
-    <Compile Include="Arguments\Jogador\AdicionarJogadorResquest.cs" />
-    <Compile Include="Arguments\Jogador\AutenticarJogadorRequest.cs" />
-    <Compile Include="Arguments\Jogador\AutenticarJogadorResponse.cs" />
-    <Compile Include="Interfaces\Arguments\IRequest.cs" />
-    <Compile Include="Arguments\Plataforma\AdicionarPlataformaResponse.cs" />
-    <Compile Include="Arguments\Plataforma\AdicionarPlataformaRequest.cs" />
-    <Compile Include="Entities\Jogador.cs" />
-    <Compile Include="Entities\Jogo.cs" />
-    <Compile Include="Entities\JogoPlataforma.cs" />
-    <Compile Include="Entities\MeuJogo.cs" />
-    <Compile Include="Entities\Plataforma.cs" />
-    <Compile Include="Enums\EnumStatusJogador.cs" />
-    <Compile Include="Interfaces\Arguments\IResponse.cs" />
-    <Compile Include="Interfaces\Repositories\IRepositoryJogador.cs" />
-    <Compile Include="Interfaces\Services\IServiceJogador.cs" />
-    <Compile Include="Interfaces\Services\IServicePlataforma.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ServiceJogador.cs" />
-    <Compile Include="ValueObjects\Email.cs" />
-    <Compile Include="ValueObjects\Nome.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Diagrams\XGame.cd" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XGame.Domain\XGame.Domain.csproj">
+      <Project>{c1834d88-2d5e-4a7b-abbc-b80971745cea}</Project>
+      <Name>XGame.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,7 +3,7 @@ using XGame.Domain.ValueObjects;
 
 namespace XGame.Domain.Arguments.Jogador
 {
-    public class AdicionarJogadorResquest : IResquest
+    public class AdicionarJogadorResquest : IRequest
     {
         public Nome Nome { get; set; }
         public Email Email { get; set; }

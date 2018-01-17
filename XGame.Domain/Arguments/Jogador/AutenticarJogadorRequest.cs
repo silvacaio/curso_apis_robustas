@@ -1,4 +1,6 @@
-﻿namespace XGame.Domain.Arguments.Jogador
+﻿using XGame.Domain.Interfaces.Arguments;
+
+namespace XGame.Domain.Arguments.Jogador
 {
     public class AutenticarJogadorRequest : IRequest
     {
