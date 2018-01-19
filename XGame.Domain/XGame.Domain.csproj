@@ -53,6 +53,7 @@
     <Compile Include="Arguments\Jogador\AdicionarJogadorResquest.cs" />
     <Compile Include="Arguments\Jogador\AutenticarJogadorRequest.cs" />
     <Compile Include="Arguments\Jogador\AutenticarJogadorResponse.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Interfaces\Arguments\IRequest.cs" />
     <Compile Include="Arguments\Plataforma\AdicionarPlataformaResponse.cs" />
     <Compile Include="Arguments\Plataforma\AdicionarPlataformaRequest.cs" />
