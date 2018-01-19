@@ -1,4 +1,6 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using System.Collections.Generic;
+using System.Linq;
+using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
 using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Entities;
@@ -28,25 +30,19 @@ namespace XGame.Domain.Services
             if (this.IsInvalid())
                 return null;
 
-            var id = _repositoryJogador.AdicionarJogador(jogador);
-            return new AdicionarJogadorResponse() { Id = new System.Guid(), Menssage = "Operação realizada com sucesso." };
+            jogador = _repositoryJogador.AdicionarJogador(jogador);
+            return (AdicionarJogadorResponse)jogador;
+        }
+
+        public AlterarJogadorResponse AlterarJogador(AlterarJogadorRequest request)
+        {
+            throw new System.NotImplementedException();
         }
 
         public AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request)
         {
             if (request == null)
                 AddNotification("request", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarJogadorRequest"));
-            //if (request == null)
-            //    throw new System.Exception("Falha ao autenticar jogador: request obrigatoria.");
-
-            //if (string.IsNullOrWhiteSpace(request.Email))
-            //    throw new System.Exception("Informe uma email.");
-
-            //if (string.IsNullOrWhiteSpace(request.Senha))
-            //    throw new System.Exception("Informe uma senha.");
-
-            //if (request.Senha.Length < 6)
-            //    throw new System.Exception("A senha deve ter ao menos 6 caracteres.");
 
             var email = new Email(request.Email);
             var jogador = new Jogador(email, request.Senha);
@@ -55,8 +51,14 @@ namespace XGame.Domain.Services
             if (this.IsInvalid())
                 return null;
 
-            var response = _repositoryJogador.AutenticarJogador(jogador.Email.Endereco, jogador.Senha);
-            return response;
+            jogador = _repositoryJogador.AutenticarJogador(jogador.Email.Endereco, jogador.Senha);
+
+            return (AutenticarJogadorResponse)jogador;
+        }
+
+        public IEnumerable<JogadorResponse> ListarJogadores()
+        {
+            return _repositoryJogador.ListarJogadores().Select(jogador => (JogadorResponse)jogador).ToList();
         }
     }
 }

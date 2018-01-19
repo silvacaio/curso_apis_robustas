@@ -61,6 +61,15 @@ namespace XGame.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operação realizada com sucesso.
+        /// </summary>
+        public static string OPERACAO_SUCESSO {
+            get {
+                return ResourceManager.GetString("OPERACAO_SUCESSO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} é invalida.
         /// </summary>
         public static string X0_E_INVALIDA {

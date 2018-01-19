@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="OPERACAO_SUCESSO" xml:space="preserve">
+    <value>Operação realizada com sucesso</value>
+  </data>
   <data name="X0_E_INVALIDA" xml:space="preserve">
     <value>{0} é invalida</value>
   </data>
