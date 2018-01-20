@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using XGame.Domain.Entities;
 
 namespace XGame.Domain.Interfaces.Repositories
@@ -7,6 +8,8 @@ namespace XGame.Domain.Interfaces.Repositories
     {
         Jogador AutenticarJogador(string email, string senha);
         Jogador AdicionarJogador(Jogador jogador);
-        IEnumerable<Jogador> ListarJogadores();
+        Jogador ObterPorId(Guid jogador);
+        IEnumerable<Jogador> Listar();
+        void Alterar(Jogador jogador);
     }
 }

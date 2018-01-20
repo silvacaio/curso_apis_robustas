@@ -8,6 +8,11 @@ namespace XGame.Domain.Entities
 {
     public class Jogador : Notifiable
     {
+        public Jogador(Nome nome, Email email, string senha) : this(email, senha)
+        {
+            AddNotifications(nome);
+        }
+
         public Jogador(Email email, string senha)
         {
             Email = email;
@@ -23,9 +28,17 @@ namespace XGame.Domain.Entities
             AddNotifications(Email);
         }
 
-        public Jogador(Nome nome, Email email, string senha) : this(email, senha)
+        public void Alterar(Nome nome, Email email)
         {
-            AddNotifications(nome);
+            new AddNotifications<Jogador>(this)
+                .IfFalse(this.Status == EnumStatusJogador.Ativo, "Só é possível alterar jogadores ativos.");
+            AddNotifications(nome, email);
+
+            if (IsInvalid()) return;
+
+            Nome = nome;
+            Email = email;
+
         }
 
         public Guid Id { get; private set; }

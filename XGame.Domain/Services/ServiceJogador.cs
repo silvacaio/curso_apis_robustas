@@ -36,7 +36,25 @@ namespace XGame.Domain.Services
 
         public AlterarJogadorResponse AlterarJogador(AlterarJogadorRequest request)
         {
-            throw new System.NotImplementedException();
+            var jogador = _repositoryJogador.ObterPorId(request.Id);
+
+            if (jogador == null)
+            {
+                AddNotification("Id", "Jogador não encontrado");
+                return null;
+            }
+
+            var nome = new Nome(request.PrimeiroNome, request.UltimoNome);
+            var email = new Email(request.Email);
+            jogador.Alterar(nome, email);
+
+            AddNotifications(jogador);
+            if (IsInvalid())
+                return null;
+
+            _repositoryJogador.Alterar(jogador);
+
+            return (AlterarJogadorResponse)jogador;
         }
 
         public AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request)
@@ -58,7 +76,7 @@ namespace XGame.Domain.Services
 
         public IEnumerable<JogadorResponse> ListarJogadores()
         {
-            return _repositoryJogador.ListarJogadores().Select(jogador => (JogadorResponse)jogador).ToList();
+            return _repositoryJogador.Listar().Select(jogador => (JogadorResponse)jogador).ToList();
         }
     }
 }
