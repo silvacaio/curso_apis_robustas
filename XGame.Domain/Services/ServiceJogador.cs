@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
+using XGame.Domain.Arguments.Base;
 using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Entities;
 using XGame.Domain.Interfaces.Repositories;
@@ -30,7 +32,7 @@ namespace XGame.Domain.Services
             if (this.IsInvalid())
                 return null;
 
-            jogador = _repositoryJogador.AdicionarJogador(jogador);
+            jogador = _repositoryJogador.Adicionar(jogador);
             return (AdicionarJogadorResponse)jogador;
         }
 
@@ -52,7 +54,7 @@ namespace XGame.Domain.Services
             if (IsInvalid())
                 return null;
 
-            _repositoryJogador.Alterar(jogador);
+            _repositoryJogador.Editar(jogador);
 
             return (AlterarJogadorResponse)jogador;
         }
@@ -69,7 +71,7 @@ namespace XGame.Domain.Services
             if (this.IsInvalid())
                 return null;
 
-            jogador = _repositoryJogador.AutenticarJogador(jogador.Email.Endereco, jogador.Senha);
+            jogador = _repositoryJogador.ObterPor(x => x.Email.Endereco == jogador.Email.Endereco, x => x.Senha == jogador.Senha);
 
             return (AutenticarJogadorResponse)jogador;
         }
@@ -77,6 +79,20 @@ namespace XGame.Domain.Services
         public IEnumerable<JogadorResponse> ListarJogadores()
         {
             return _repositoryJogador.Listar().Select(jogador => (JogadorResponse)jogador).ToList();
+        }
+
+        public ResponseBase Remover(Guid id)
+        {
+            Jogador jogador = _repositoryJogador.ObterPorId(id);
+
+            if (jogador == null)
+            {
+                AddNotification("Id", "Jogador não encontrado");
+                return null;
+            }
+
+            _repositoryJogador.Remover(jogador);
+            return new ResponseBase() { Message = "Removido com sucesso" };
         }
     }
 }

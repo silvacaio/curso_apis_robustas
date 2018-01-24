@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using XGame.Domain.Arguments.Base;
 using XGame.Domain.Arguments.Jogador;
 
 namespace XGame.Domain.Interfaces.Services
@@ -9,6 +11,6 @@ namespace XGame.Domain.Interfaces.Services
         AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorResquest request);
         AlterarJogadorResponse AlterarJogador(AlterarJogadorRequest request);
         IEnumerable<JogadorResponse> ListarJogadores();
-
+        ResponseBase Remover(Guid id);
     }
 }
