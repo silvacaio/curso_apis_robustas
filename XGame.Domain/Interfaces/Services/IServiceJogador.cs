@@ -5,7 +5,7 @@ using XGame.Domain.Arguments.Jogador;
 
 namespace XGame.Domain.Interfaces.Services
 {
-    public interface IServiceJogador
+    public interface IServiceJogador : IServiceBase
     {
         AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request);
         AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorResquest request);

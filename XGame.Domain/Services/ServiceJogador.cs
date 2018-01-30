@@ -29,6 +29,8 @@ namespace XGame.Domain.Services
             var nome = new Nome(request.PrimeiroNome, request.UltimoNome);
             var jogador = new Jogador(nome, email, request.Senha);
 
+            AddNotifications(email, nome, jogador);
+
             if (this.IsInvalid())
                 return null;
 

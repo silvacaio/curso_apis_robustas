@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame.Domain", "XGame.Domain\XGame.Domain.csproj", "{C1834D88-2D5E-4A7B-ABBC-B80971745CEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame.AppConsole", "XGame.AppConsole\XGame.AppConsole.csproj", "{1C31BB50-970A-4205-B8D7-EA4E117EEBDB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame.Infra", "XGame.Infra\XGame.Infra.csproj", "{FB9E91A2-3E54-4104-9B7F-8816CDFBE704}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame.IoC", "XGame.IoC\XGame.IoC.csproj", "{269EA3E0-2D75-4229-9309-CBCBEC6B4AD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame.Api", "XGame.Api\XGame.Api.csproj", "{8C613B71-12EA-44AC-98A1-D77B8E10272B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{C1834D88-2D5E-4A7B-ABBC-B80971745CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1834D88-2D5E-4A7B-ABBC-B80971745CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1834D88-2D5E-4A7B-ABBC-B80971745CEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C31BB50-970A-4205-B8D7-EA4E117EEBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C31BB50-970A-4205-B8D7-EA4E117EEBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C31BB50-970A-4205-B8D7-EA4E117EEBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C31BB50-970A-4205-B8D7-EA4E117EEBDB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB9E91A2-3E54-4104-9B7F-8816CDFBE704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB9E91A2-3E54-4104-9B7F-8816CDFBE704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB9E91A2-3E54-4104-9B7F-8816CDFBE704}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{269EA3E0-2D75-4229-9309-CBCBEC6B4AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{269EA3E0-2D75-4229-9309-CBCBEC6B4AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{269EA3E0-2D75-4229-9309-CBCBEC6B4AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C613B71-12EA-44AC-98A1-D77B8E10272B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C613B71-12EA-44AC-98A1-D77B8E10272B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C613B71-12EA-44AC-98A1-D77B8E10272B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C613B71-12EA-44AC-98A1-D77B8E10272B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

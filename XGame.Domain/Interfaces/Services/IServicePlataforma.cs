@@ -2,7 +2,7 @@
 
 namespace XGame.Domain.Interfaces.Services
 {
-    public interface IServicePlataforma
+    public interface IServicePlataforma : IServiceBase
     {
         AdicionarPlataformaResponse Adicionar(AdicionarPlataformaRequest request);
     }
