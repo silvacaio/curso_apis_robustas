@@ -21,7 +21,7 @@ namespace XGame.Api
             HttpConfiguration config = new HttpConfiguration();
 
             // Swagger
-            //   SwaggerConfig.Register(config); //responsavel por gerar a documentação da API
+            SwaggerConfig.Register(config); //responsavel por gerar a documentação da API
 
             // Configure Dependency Injection
             var container = new UnityContainer();
@@ -44,7 +44,7 @@ namespace XGame.Api
             formatters.Remove(formatters.XmlFormatter);
 
             //Compacta retorno de cada requisição realizada para api
-            config.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
+            //config.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
 
             // Modifica a identação
             var jsonSettings = formatters.JsonFormatter.SerializerSettings;
