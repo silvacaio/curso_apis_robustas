@@ -20,6 +20,22 @@ namespace XGame.Api.Controllers
             _serviceJogador = serviceJogador;
         }
 
+        //[Route("Adicionar")]
+        //[HttpPost]
+        //public async Task<HttpResponseMessage> Adicionar(AdicionarJogadorResquest request)
+        //{
+        //    try
+        //    {
+        //        var response = _serviceJogador.AdicionarJogador(request);
+
+        //        return await ResponseAsync(response, _serviceJogador);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return await ResponseExceptionAsync(ex);
+        //    }
+        //}
+
         [Route("Adicionar")]
         [HttpPost]
         public async Task<HttpResponseMessage> Adicionar(AdicionarJogadorResquest request)

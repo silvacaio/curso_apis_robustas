@@ -9,7 +9,9 @@ namespace XGame.IoC.Unity
     public class UnityResolver : IDependencyResolver
     {
         protected IUnityContainer container;
-     
+
+        //teste merge
+
         public UnityResolver(IUnityContainer container)
         {
             if (container == null)

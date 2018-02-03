@@ -16,7 +16,7 @@ namespace XGame.Domain.Entities
             Status = EnumStatusJogador.EmAnalise;
 
             new AddNotifications<Jogador>(this)
-                .IfNullOrInvalidLength(x => x.Senha, 6, 32, "A senha deve conter ao menos 6 caracteres.");
+                .IfNullOrInvalidLength(x => senha, 6, 32, "A senha deve conter ao menos 6 caracteres.");
 
             AddNotifications(nome, email);
 
