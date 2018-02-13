@@ -19,6 +19,8 @@ namespace XGame.IoC.Unity
         {
 
             container.RegisterType<DbContext, XGameContext>(new HierarchicalLifetimeManager());
+            container.RegisterType<IServiceJogador, ServiceJogador>(new HierarchicalLifetimeManager());
+
             //UnitOfWork
             container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
             container.RegisterType<INotifiable, Notifiable>(new HierarchicalLifetimeManager());
@@ -26,7 +28,7 @@ namespace XGame.IoC.Unity
             //Serviço de Domain
             //container.RegisterType(typeof(IServiceBase<,>), typeof(ServiceBase<,>));
 
-            container.RegisterType<IServiceJogador, ServiceJogador>(new HierarchicalLifetimeManager());
+          
             //container.RegisterType<IServiceJogo, ServiceJogo>(new HierarchicalLifetimeManager());
 
 

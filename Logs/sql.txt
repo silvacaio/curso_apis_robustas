@@ -1,26 +1,26 @@
-Opened connection at 02/02/2018 22:52:54 -02:00
+Opened connection at 13/02/2018 13:31:22 -02:00
 select cast(serverproperty('EngineEdition') as int)
--- Executing at 02/02/2018 22:52:54 -02:00
--- Completed in 1 ms with result: SqlDataReader
+-- Executing at 13/02/2018 13:31:22 -02:00
+-- Completed in 37 ms with result: SqlDataReader
 
-Closed connection at 02/02/2018 22:52:54 -02:00
-Opened connection at 02/02/2018 22:52:54 -02:00
+Closed connection at 13/02/2018 13:31:22 -02:00
+Opened connection at 13/02/2018 13:31:23 -02:00
 IF db_id(N'XGame') IS NOT NULL SELECT 1 ELSE SELECT Count(*) FROM sys.databases WHERE [name]=N'XGame'
--- Executing at 02/02/2018 22:52:54 -02:00
--- Completed in 22 ms with result: 1
+-- Executing at 13/02/2018 13:31:23 -02:00
+-- Completed in 52 ms with result: 1
 
-Closed connection at 02/02/2018 22:52:54 -02:00
-Opened connection at 02/02/2018 22:52:54 -02:00
+Closed connection at 13/02/2018 13:31:23 -02:00
+Opened connection at 13/02/2018 13:31:23 -02:00
 
 SELECT Count(*)
 FROM INFORMATION_SCHEMA.TABLES AS t
 WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Jogador','dbo.Jogo','dbo.Plataforma')
     OR t.TABLE_NAME = 'EdmMetadata'
--- Executing at 02/02/2018 22:52:54 -02:00
--- Completed in 12 ms with result: 3
+-- Executing at 13/02/2018 13:31:23 -02:00
+-- Completed in 78 ms with result: 3
 
-Closed connection at 02/02/2018 22:52:54 -02:00
-Opened connection at 02/02/2018 22:52:55 -02:00
+Closed connection at 13/02/2018 13:31:23 -02:00
+Opened connection at 13/02/2018 13:31:23 -02:00
 SELECT 
     [GroupBy1].[A1] AS [C1]
     FROM ( SELECT 
@@ -29,11 +29,11 @@ SELECT
         WHERE [Extent1].[ContextKey] = @p__linq__0
     )  AS [GroupBy1]
 -- p__linq__0: 'XGame.Infra.Migrations.Configuration' (Type = String, Size = 4000)
--- Executing at 02/02/2018 22:52:55 -02:00
--- Completed in 2 ms with result: SqlDataReader
+-- Executing at 13/02/2018 13:31:24 -02:00
+-- Completed in 45 ms with result: SqlDataReader
 
-Closed connection at 02/02/2018 22:52:55 -02:00
-Opened connection at 02/02/2018 22:52:55 -02:00
+Closed connection at 13/02/2018 13:31:24 -02:00
+Opened connection at 13/02/2018 13:31:24 -02:00
 SELECT TOP (1) 
     [Project1].[C1] AS [C1], 
     [Project1].[MigrationId] AS [MigrationId], 
@@ -49,7 +49,7 @@ SELECT TOP (1)
     )  AS [Project1]
     ORDER BY [Project1].[MigrationId] DESC
 -- p__linq__0: 'XGame.Infra.Migrations.Configuration' (Type = String, Size = 4000)
--- Executing at 02/02/2018 22:52:55 -02:00
--- Completed in 1 ms with result: SqlDataReader
+-- Executing at 13/02/2018 13:31:24 -02:00
+-- Completed in 7 ms with result: SqlDataReader
 
-Closed connection at 02/02/2018 22:52:55 -02:00
+Closed connection at 13/02/2018 13:31:24 -02:00
