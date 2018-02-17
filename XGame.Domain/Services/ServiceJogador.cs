@@ -22,14 +22,22 @@ namespace XGame.Domain.Services
             _repositoryJogador = repositoyJogador;
         }
 
-        public AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorResquest request)
+        public AdicionarJogadorResponse Adicionar(AdicionarJogadorResquest request)
         {
-            //var email = new Email(request.Email);
             var email = new Email(request.Email);
             var nome = new Nome(request.PrimeiroNome, request.UltimoNome);
             var jogador = new Jogador(nome, email, request.Senha);
 
             AddNotifications(email, nome, jogador);
+
+            //new AddNotifications<ServiceJogador>(this)
+            //    .IfTrue(, "Já existe este e-mail cadastrado");
+
+            if (_repositoryJogador.Existe(x => x.Email.Endereco == request.Email))
+            {
+                AddNotification("E-mail", "Já existe este e-mail");
+
+            }
 
             if (this.IsInvalid())
                 return null;
@@ -38,7 +46,7 @@ namespace XGame.Domain.Services
             return (AdicionarJogadorResponse)jogador;
         }
 
-        public AlterarJogadorResponse AlterarJogador(AlterarJogadorRequest request)
+        public AlterarJogadorResponse Alterar(AlterarJogadorRequest request)
         {
             var jogador = _repositoryJogador.ObterPorId(request.Id);
 
@@ -61,7 +69,7 @@ namespace XGame.Domain.Services
             return (AlterarJogadorResponse)jogador;
         }
 
-        public AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request)
+        public AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest request)
         {
             if (request == null)
                 AddNotification("request", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarJogadorRequest"));
@@ -78,9 +86,9 @@ namespace XGame.Domain.Services
             return (AutenticarJogadorResponse)jogador;
         }
 
-        public IEnumerable<JogadorResponse> ListarJogadores()
+        public IEnumerable<JogadorResponse> Listar()
         {
-            return _repositoryJogador.Listar().Select(jogador => (JogadorResponse)jogador).ToList();
+            return _repositoryJogador.Listar().ToList().Select(jogador => (JogadorResponse)jogador);
         }
 
         public ResponseBase Remover(Guid id)

@@ -6,7 +6,6 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
-using Unity;
 using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Interfaces.Services;
 
@@ -38,7 +37,7 @@ namespace XGame.Api.Security
                 request.Email = context.UserName;
                 request.Senha = context.Password;
 
-                AutenticarJogadorResponse response = serviceJogador.AutenticarJogador(request);
+                AutenticarJogadorResponse response = serviceJogador.Autenticar(request);
 
                 if (serviceJogador.IsInvalid())
                 {

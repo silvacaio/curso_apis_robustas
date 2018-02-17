@@ -3,32 +3,32 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using XGame.Api.Controllers.Base;
-using XGame.Domain.Arguments.Jogador;
+using XGame.Domain.Arguments.Jogo;
 using XGame.Domain.Interfaces.Services;
 using XGame.Infra.Transactions;
 
 namespace XGame.Api.Controllers
 {
-    [RoutePrefix("api/jogador")]
-    public class JogadorController : ControllerBase
+    [RoutePrefix("api/jogo")]
+    public class JogoController : ControllerBase
     {
-        private readonly IServiceJogador _serviceJogador;
+        private readonly IServiceJogo _serviceJogo;
 
-        public JogadorController(IUnitOfWork unitOfWork, IServiceJogador serviceJogador)
+        public JogoController(IUnitOfWork unitOfWork, IServiceJogo serviceJogo)
             : base(unitOfWork)
         {
-            _serviceJogador = serviceJogador;
+            _serviceJogo = serviceJogo;
         }
 
         [Route("Adicionar")]
         [HttpPost]
-        public async Task<HttpResponseMessage> Adicionar(AdicionarJogadorResquest request)
+        public async Task<HttpResponseMessage> Adicionar(AdicionarRequest request)
         {
             try
             {
-                var response = _serviceJogador.Adicionar(request);
+                var response = _serviceJogo.Adicionar(request);
 
-                return await ResponseAsync(response, _serviceJogador);
+                return await ResponseAsync(response, _serviceJogo);
             }
             catch (Exception ex)
             {
@@ -42,9 +42,9 @@ namespace XGame.Api.Controllers
         {
             try
             {
-                var response = _serviceJogador.Listar();
+                var response = _serviceJogo.Listar();
 
-                return await ResponseAsync(response, _serviceJogador);
+                return await ResponseAsync(response, _serviceJogo);
             }
             catch (Exception ex)
             {

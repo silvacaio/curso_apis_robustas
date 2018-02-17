@@ -8,7 +8,6 @@ using Owin;
 using System;
 using System.Net.Http.Extensions.Compression.Core.Compressors;
 using System.Web.Http;
-using Unity;
 using XGame.Api.Security;
 using XGame.IoC.Unity;
 
@@ -44,7 +43,7 @@ namespace XGame.Api
             formatters.Remove(formatters.XmlFormatter);
 
             //Compacta retorno de cada requisição realizada para api
-            //config.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
+            config.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
 
             // Modifica a identação
             var jsonSettings = formatters.JsonFormatter.SerializerSettings;

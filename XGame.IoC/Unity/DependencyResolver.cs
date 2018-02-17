@@ -1,7 +1,6 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using Microsoft.Practices.Unity;
+using prmToolkit.NotificationPattern;
 using System.Data.Entity;
-using Unity;
-using Unity.Lifetime;
 using XGame.Domain.Interfaces.Repositories;
 using XGame.Domain.Interfaces.Repositories.Base;
 using XGame.Domain.Interfaces.Services;
@@ -28,8 +27,8 @@ namespace XGame.IoC.Unity
             //Serviço de Domain
             //container.RegisterType(typeof(IServiceBase<,>), typeof(ServiceBase<,>));
 
-          
-            //container.RegisterType<IServiceJogo, ServiceJogo>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<IServiceJogo, ServiceJogo>(new HierarchicalLifetimeManager());
 
 
 
@@ -37,7 +36,7 @@ namespace XGame.IoC.Unity
             container.RegisterType(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
 
             container.RegisterType<IRepositoryJogador, RepositoryJogador>(new HierarchicalLifetimeManager());
-            //  container.RegisterType<IRepositoryJogo, RepositoryJogo>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRepositoryJogo, RepositoryJogo>(new HierarchicalLifetimeManager());
 
 
 

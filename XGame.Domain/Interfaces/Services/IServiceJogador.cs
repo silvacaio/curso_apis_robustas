@@ -7,10 +7,10 @@ namespace XGame.Domain.Interfaces.Services
 {
     public interface IServiceJogador : IServiceBase
     {
-        AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request);
-        AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorResquest request);
-        AlterarJogadorResponse AlterarJogador(AlterarJogadorRequest request);
-        IEnumerable<JogadorResponse> ListarJogadores();
+        AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest request);
+        AdicionarJogadorResponse Adicionar(AdicionarJogadorResquest request);
+        AlterarJogadorResponse Alterar(AlterarJogadorRequest request);
+        IEnumerable<JogadorResponse> Listar();
         ResponseBase Remover(Guid id);
     }
 }
