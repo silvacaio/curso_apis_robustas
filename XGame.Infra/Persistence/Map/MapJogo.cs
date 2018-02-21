@@ -11,8 +11,7 @@ namespace XGame.Infra.Persistence.Map
         {
             ToTable("Jogo");
 
-            Property(p => p.Nome).IsRequired().HasMaxLength(100)
-                .HasColumnAnnotation("index", new IndexAnnotation(new IndexAttribute("UK_JOGADOR_EMAIL") { IsUnique = true })).HasColumnName("Email");
+            Property(p => p.Nome).IsRequired().HasMaxLength(100);
             Property(p => p.Descricao).HasMaxLength(255).IsRequired();
             Property(p => p.Produtora).HasMaxLength(50);
             Property(p => p.Distribuidora).HasMaxLength(50);

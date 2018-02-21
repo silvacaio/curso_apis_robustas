@@ -35,7 +35,7 @@ namespace XGame.Api.Controllers
                 return await ResponseExceptionAsync(ex);
             }
         }
-
+        [Authorize]
         [Route("Listar")]
         [HttpGet]
         public async Task<HttpResponseMessage> Listar()

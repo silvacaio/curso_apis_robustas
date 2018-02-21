@@ -53,6 +53,10 @@
     <Compile Include="Migrations\201801200122473_CriandoBanco.Designer.cs">
       <DependentUpon>201801200122473_CriandoBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802210006311_MapJogo.cs" />
+    <Compile Include="Migrations\201802210006311_MapJogo.Designer.cs">
+      <DependentUpon>201802210006311_MapJogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\Map\MapJogo.cs" />
     <Compile Include="Persistence\Map\MapJogador.cs" />
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801200122473_CriandoBanco.resx">
       <DependentUpon>201801200122473_CriandoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802210006311_MapJogo.resx">
+      <DependentUpon>201802210006311_MapJogo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

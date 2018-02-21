@@ -1,6 +1,7 @@
 ﻿using prmToolkit.NotificationPattern;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using XGame.Domain.Arguments.Base;
 using XGame.Domain.Arguments.Jogo;
 using XGame.Domain.Entities;
@@ -20,8 +21,14 @@ namespace XGame.Domain.Services
 
         public AdicionarResponse Adicionar(AdicionarRequest request)
         {
+            if (request != null)
+            {
+                AddNotification("Adicionar", "Objeto request é obrigatório");
+                return null;
+            }
+
             var jogo = new Jogo(request.Nome, request.Descricao, request.Produtora,
-                request.Distribuidora, request.Genero, request.Site);
+                    request.Distribuidora, request.Genero, request.Site);
 
             AddNotifications(jogo);
 
@@ -34,6 +41,11 @@ namespace XGame.Domain.Services
 
         public AlterarResponse Alterar(AlterarRequest request)
         {
+            if (request != null)
+            {
+                AddNotification("Alterar", "Objeto request é obrigatório");
+                return null;
+            }
             var jogo = _repositoryJogo.ObterPorId(request.Id);
 
             if (jogo == null)
@@ -56,7 +68,7 @@ namespace XGame.Domain.Services
 
         public IEnumerable<JogoResponse> Listar()
         {
-            throw new NotImplementedException();
+            return _repositoryJogo.Listar().ToList().Select(a => (JogoResponse)a);
         }
 
         public ResponseBase Remover(Guid id)
